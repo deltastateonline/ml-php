@@ -1,0 +1,1 @@
+"C:\xampp718\php\php.exe" "predictions\prediction.php"

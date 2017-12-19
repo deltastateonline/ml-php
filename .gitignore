@@ -1,0 +1,14 @@
+#OS Junk Files
+[Tt]humbs.db
+*.DS_Store
+
+#AdjustIt Server
+/*.project
+test/*
+validate/*
+empty/*
+libs/
+sample.*/*
+logos/folder.gray/*
+logos/folder.histogram/*
+logos/folder.csv/*

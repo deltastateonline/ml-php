@@ -1,0 +1,13 @@
+
+Notice: Undefined variable: finalString in C:\Development\ml-php\image.creation.php on line 73
+
+Call Stack:
+    0.0045     126776   1. {main}() C:\Development\ml-php\image.creation.php:0
+
+
+Warning: implode(): Invalid arguments passed in C:\Development\ml-php\image.creation.php on line 73
+
+Call Stack:
+    0.0045     126776   1. {main}() C:\Development\ml-php\image.creation.php:0
+    0.0145     185256   2. implode() C:\Development\ml-php\image.creation.php:73
+
