@@ -2,7 +2,7 @@
 Attempt to use supervised machine learning to classify email attachment images as either being logos or photos of damages. 
 When emails are being processed, any attachments which are images (png, jpg or gif) can either be logos or be valid images which have to be kept for further processing.
 Features about the images have to be obtained and used to train a model which the PHP-ML library can use to make predictions.
-
+### Libraries Used
 * PHP-ML - Machine Learning library for PHP
 * pChart - a PHP Charting library 
 
@@ -38,7 +38,7 @@ For example
 "C:\xampp718\php\php.exe" "predictions\prediction.validate.php"  "samples.csv"
 ```
 
-*Make a Prediction on images
+* Make a Prediction on images
 ```bat
 "C:\xampp718\php\php.exe" "image.prediction.php" {image file name}
 For example
@@ -48,21 +48,20 @@ For example
 ```
 
 
-### PHP-ML - Machine Learning library for PHP
+## PHP-ML - Machine Learning library for PHP
 Fresh approach to Machine Learning in PHP. Algorithms, Cross Validation, Neural Network, Preprocessing, Feature Extraction and much more in one library.
 PHP-ML requires PHP >= 7.0.
 
-## Official Documentation
+### Official Documentation
 Documentation for this library can be found on the [PHP-ML website](http://php-ml.readthedocs.io/en/latest/).
 
-
-### pChart - a PHP Charting library 
+## pChart - a PHP Charting library 
 pChart is a PHP library that will help you to create anti-aliased charts or pictures directly from your web server. You can then display the result in the client browser, sent it by mail or insert it into PDFs. pChart provide object oriented coding syntax and is fully in line with the new web standards allowing you to enhance your web2.0 applications. 
 
-Histogram of Logos
+### Histogram of Logos
 ![Brisbane Collision Center](https://github.com/deltastateonline/ml-php/blob/master/training.logos/folder.histogram/brisbane.collision.center.png)
 ![BMW](https://github.com/deltastateonline/ml-php/blob/master/training.logos/folder.histogram/bmw_2.png)
 
-Histogram of Photos
+### Histogram of Photos
 ![Photos 1](https://github.com/deltastateonline/ml-php/blob/master/training.photos/folder.histogram/10616_0012.png)
 ![Photos 2](https://github.com/deltastateonline/ml-php/blob/master/training.photos/folder.histogram/4by4.onwhite.png)
