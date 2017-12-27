@@ -1,4 +1,4 @@
-## Machine Learning Using Php, implementing image classification.
+## Machine Learning Using PHP-ML, implementing image classification.
 Attempt to use supervised machine learning to classify email attachment images as either being logos or photos of damages. 
 When emails are being processed, any attachments which are images (png, jpg or gif) can either be logos or be valid images which have to be kept for further processing.
 Features about the images have to be obtained and used to train a model which the PHP-ML library can use to make predictions.
