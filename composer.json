@@ -1,5 +1,9 @@
 {
     "require": {
         "php-ai/php-ml": "^0.4.1"
-    }
+    },
+    "autoload": {
+	      "psr-0": {"Mlphp": "src/"}
+	  }
+    
 }

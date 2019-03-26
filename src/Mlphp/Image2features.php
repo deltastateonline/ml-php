@@ -1,4 +1,5 @@
 <?php 
+namespace Mlphp;
 /**
  * 
  */
@@ -88,7 +89,7 @@ class Image2features {
         $created =	$this->imageSaveAny($filePath,$this->resizedIm);
         
         if($created){            
-            \log_message("File created ".realpath($filePath));
+            Helper::log_message("File created ".realpath($filePath));
         }else{            
             throw new Exception("File not created {$filePath}.\n");            
         }
@@ -107,9 +108,9 @@ class Image2features {
         
         $this->pixel_sum = array_sum($this->compressedBins);
         
-        \log_message(sprintf("%-12s:\t%s","Histogram",$validBin));         
-        \log_message(sprintf("Normalized pixel sum %s",$this->pixel_sum));        
-        \log_message(sprintf("%'-80s",''));       
+        Helper::log_message(sprintf("%-12s:\t%s","Histogram",$validBin));         
+        Helper::log_message(sprintf("Normalized pixel sum %s",$this->pixel_sum));        
+        Helper::log_message(sprintf("%'-80s",''));       
        
     } 
 	
@@ -138,9 +139,9 @@ class Image2features {
         
         $this->pixel_sum = array_sum($this->compressedBins);
         
-        \log_message(sprintf("%-12s:\t%s","Histogram",$validBin));         
-        \log_message(sprintf("Normalized pixel sum %s",$this->pixel_sum));        
-        \log_message(sprintf("%'-80s",''));       
+        Helper::log_message(sprintf("%-12s:\t%s","Histogram",$validBin));         
+        Helper::log_message(sprintf("Normalized pixel sum %s",$this->pixel_sum));        
+        Helper::log_message(sprintf("%'-80s",''));       
        
     } 
 	
