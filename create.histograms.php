@@ -6,10 +6,10 @@
 
 define('FPATH' , __DIR__.DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."pChart.2");
 
-require_once("classes\helper.php");
-include(FPATH."/class/pDraw.class.php"); 
-include(FPATH."/class/pImage.class.php"); 
-include(FPATH."/class/pData.class.php"); 
+require_once("classes".DIRECTORY_SEPARATOR."helper.php");
+include(FPATH.DIRECTORY_SEPARATOR."class".DIRECTORY_SEPARATOR."pDraw.class.php"); 
+include(FPATH.DIRECTORY_SEPARATOR."class".DIRECTORY_SEPARATOR."pImage.class.php"); 
+include(FPATH.DIRECTORY_SEPARATOR."class".DIRECTORY_SEPARATOR."pData.class.php"); 
 
 
 define('ADJDEBUG' , TRUE);

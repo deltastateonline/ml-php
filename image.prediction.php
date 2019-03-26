@@ -4,9 +4,9 @@
  * @author Agbagbara Omokhoa
  * @email nimble@deltastateonline.com
  */
-require_once("predictions/vendor/autoload.php");
-require_once("classes/helper.php");
-require_once("classes/image2features.php");
+require_once("predictions".DIRECTORY_SEPARATOR."vendor".DIRECTORY_SEPARATOR."autoload.php");
+require_once("classes".DIRECTORY_SEPARATOR."helper.php");
+require_once("classes".DIRECTORY_SEPARATOR."image2features.php");
 
 use Phpml\ModelManager;
 define('ADJDEBUG' , FALSE);

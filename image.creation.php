@@ -3,8 +3,8 @@
  * @author Agbagbara Omokhoa
  * @email nimble@deltastateonline.com
  */
-require_once("classes\helper.php");
-require_once("classes\image2features.php");
+require_once("classes".DIRECTORY_SEPARATOR."helper.php");
+require_once("classes".DIRECTORY_SEPARATOR."image2features.php");
 
 define('ADJDEBUG' , FALSE);
 
