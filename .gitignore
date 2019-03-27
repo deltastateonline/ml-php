@@ -7,7 +7,6 @@
 test/*
 validate/*
 empty/*
-libs/
 sample.*/*
 logos/folder.gray/*
 logos/folder.histogram/*
