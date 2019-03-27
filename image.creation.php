@@ -21,7 +21,10 @@ if(count($argv) > 1 ){
 	}
 }
 
-chdir($prefix); // change to the required dir
+if(!@chdir($prefix)){
+	echo "Unable to change directory to {$prefix}\n"; // change to the required dir
+	return;
+}
 
 $currentDir =  getcwd(); // where am i , logos, validate or test
 

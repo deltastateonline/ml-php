@@ -4,9 +4,8 @@
  * @author Agbagbara Omokhoa
  * @email nimble@deltastateonline.com
  */
-require_once("predictions/vendor/autoload.php");
-require_once("classes/helper.php");
-require_once("classes/image2features.php");
+require_once("vendor/autoload.php");
+
 
 use Phpml\ModelManager;
 define('ADJDEBUG' , FALSE);
@@ -16,6 +15,7 @@ $logoClass = 0; // we shall use 0 = is logo and 1 is photo
 
 $currentDir =  getcwd(); 
 $prediction_model_folder = $currentDir.DIRECTORY_SEPARATOR."predictions.model".DIRECTORY_SEPARATOR;
+
 
  try {
 
@@ -28,9 +28,9 @@ $prediction_model_folder = $currentDir.DIRECTORY_SEPARATOR."predictions.model".D
 		throw new Exception("Valid Input file required : {$filename}");  
 	}
 	
-	\log_message("Input file ".realpath($filename));	
+	Mlphp\Helper::log_message("Input file ".realpath($filename));	
 	
-	 $anImage = new image2features($filename,$logoClass);  
+	 $anImage = new Mlphp\Image2features($filename,$logoClass);  
      $anImage->imageFeaturesNoOutput(); 
 	 
 	 $predictionFeatures = $anImage->toFeatures();
@@ -43,10 +43,10 @@ $prediction_model_folder = $currentDir.DIRECTORY_SEPARATOR."predictions.model".D
          $finalString[] = (string)$anImage; 
 	 
 	 $t = implode(PHP_EOL,$finalString);
-	 \log_message($t);
+	 Mlphp\Helper::log_message($t);
 	 
-	 
-	$filepath = $prediction_model_folder."nmodel_0.9821.data";
+	
+	$filepath = $prediction_model_folder."model_0.9022.data";
     $modelManager = new ModelManager();
 
 	$classifier = $modelManager->restoreFromFile($filepath);
