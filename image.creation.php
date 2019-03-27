@@ -3,8 +3,9 @@
  * @author Agbagbara Omokhoa
  * @email nimble@deltastateonline.com
  */
-require_once("classes\helper.php");
-require_once("classes\image2features.php");
+
+require('vendor/autoload.php');
+
 
 define('ADJDEBUG' , FALSE);
 
@@ -30,9 +31,10 @@ $gray_folder = "folder.gray";  // put all the grayscaled images here
 $cvs_folder = "folder.csv"; // write the csv files here
 $histogram="folder.histogram"; // write all the histograms here
 
-createFolders($currentDir,$gray_folder);
-createFolders($currentDir,$cvs_folder);
-createFolders($currentDir,$histogram);
+
+Mlphp\Helper::createFolders($currentDir,$gray_folder);
+Mlphp\Helper::createFolders($currentDir,$cvs_folder);
+Mlphp\Helper::createFolders($currentDir,$histogram);
 
 
 $allFiles = glob($folder."*.*", GLOB_NOSORT); // find all images
@@ -48,7 +50,7 @@ foreach( $allFiles as $image){
     $anImage = NULL;
     
      try {
-         $anImage = new image2features($image,$logoClass);  
+         $anImage = new Mlphp\Image2features($image,$logoClass);  
          $anImage->imageFeatures($gray_folder); 
          
          if($writeHeader){ // write the header for the csv file the very first time you loop thru
@@ -59,7 +61,7 @@ foreach( $allFiles as $image){
          $finalString[] = (string)$anImage;       
          
          $anImage->writeFeatures2Csv($cvs_folder); // write the output to a file so that you can render a histogram 
-         
+         echo "Process - ",$i++,"\r";
          unset($anImage);
          
      } catch (Exception $e) {
@@ -70,8 +72,10 @@ foreach( $allFiles as $image){
 }
 
 // output the content you can redirect the output to a file
-echo implode(PHP_EOL,$finalString);
 
+$fp = fopen($prefix.".csv","w");
+fwrite($fp , implode(PHP_EOL,$finalString));
+fclose($fp);
 
-
+echo "Done \n";
 
