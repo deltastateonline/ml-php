@@ -4,9 +4,9 @@
  * @var unknown
  */
 
-define('FPATH' , __DIR__.DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."pChart.2");
+define('FPATH' , __DIR__.DIRECTORY_SEPARATOR."libs".DIRECTORY_SEPARATOR."pChart2.1.4");
 
-require_once("classes\helper.php");
+
 include(FPATH."/class/pDraw.class.php"); 
 include(FPATH."/class/pImage.class.php"); 
 include(FPATH."/class/pData.class.php"); 
@@ -30,7 +30,7 @@ $output_folder  = "folder.histogram".DIRECTORY_SEPARATOR;
 //$outputDir = $currentDir.DIRECTORY_SEPARATOR.$outputKey;
 
 
-
+$i= 0;
 $allFiles = glob($folder."*.*", GLOB_NOSORT);
 
 foreach( $allFiles as $aFile){	
@@ -72,6 +72,8 @@ foreach( $allFiles as $aFile){
  
 	$myPicture->autoOutput($newPath); 
 	 
+	echo "Process - ",$i++,"\r";
+	
 	unset($myData);
 	unset($myPicture); 
 	

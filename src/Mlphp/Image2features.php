@@ -80,7 +80,7 @@ class Image2features {
     function imageFeatures($outputFolder){
         
         
-        $this->resizedIm = $this->resizeImage(); // resize the file        
+        $this->resizedIm = $this->resizeImage(100,100); // resize the file        
         $this->resizedIm = $this->createGrayScale($this->resizedIm);
         
         $filePath = $outputFolder.DIRECTORY_SEPARATOR.$this->pathInfo["basename"];        
@@ -91,7 +91,7 @@ class Image2features {
         if($created){            
             Helper::log_message("File created ".realpath($filePath));
         }else{            
-            throw new Exception("File not created {$filePath}.\n");            
+            throw new \Exception("File not created {$filePath}.\n");            
         }
         
         $bins = $this->initBin(); // create 256 element array which is intialised with 0        
@@ -176,7 +176,7 @@ class Image2features {
         if($im && imagefilter($im, IMG_FILTER_GRAYSCALE)){           
             return $im;            
         }else{                
-            throw new Exception("Conversion to grayscale failed: {$this->imageUrl}.\n");
+            throw new \Exception("Conversion to grayscale failed: {$this->imageUrl}.\n");
         }        
     }    
     
@@ -192,7 +192,7 @@ class Image2features {
         $this->type = exif_imagetype($filepath); // [] if you don't have exif you could use getImageSize()
        
         if (!in_array($this->type, $this->allowedTypes)) {            
-            throw new Exception("Invalid file type : {$this->type} from {$filepath}.\n");            
+            throw new \Exception("Invalid file type : {$this->type} from {$filepath}.\n");            
         }
         
         switch ($this->type) {
@@ -279,7 +279,7 @@ class Image2features {
         $im = imagecreatetruecolor($width, $height);   
         
         if(!is_resource($im)){
-            throw new Exception("Unable to resize file : {$this->imageUrl}.\n");
+            throw new \Exception("Unable to resize file : {$this->imageUrl}.\n");
         }        
           
         imagecopyresampled($im, $this->im, 0, 0, 0, 0,

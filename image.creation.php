@@ -61,7 +61,7 @@ foreach( $allFiles as $image){
          $finalString[] = (string)$anImage;       
          
          $anImage->writeFeatures2Csv($cvs_folder); // write the output to a file so that you can render a histogram 
-         
+         echo "Process - ",$i++,"\r";
          unset($anImage);
          
      } catch (Exception $e) {
@@ -72,8 +72,10 @@ foreach( $allFiles as $image){
 }
 
 // output the content you can redirect the output to a file
-echo implode(PHP_EOL,$finalString);
 
+$fp = fopen($prefix.".csv","w");
+fwrite($fp , implode(PHP_EOL,$finalString));
+fclose($fp);
 
-
+echo "Done \n";
 
