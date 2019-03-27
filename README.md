@@ -60,6 +60,7 @@ Documentation for this library can be found on the [PHP-ML website](http://php-m
 This library must use 5.6 or less.
 
 * Create Histogram 
+Allows you to create histograms from the csv files. The Historgram file will be created in the 'folder.histogram' directory.
 ```bat
 "C:\xampp\php\php.exe" "create.histograms.php" "training.logos"
 ```
