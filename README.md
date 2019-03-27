@@ -56,7 +56,14 @@ PHP-ML requires PHP >= 7.0.
 Documentation for this library can be found on the [PHP-ML website](http://php-ml.readthedocs.io/en/latest/).
 
 ## pChart - a PHP Charting library 
-pChart is a PHP library that will help you to create anti-aliased charts or pictures directly from your web server. You can then display the result in the client browser, sent it by mail or insert it into PDFs. pChart provide object oriented coding syntax and is fully in line with the new web standards allowing you to enhance your web2.0 applications. 
+[pChart](http://www.pchart.net/) is a PHP library that will help you to create anti-aliased charts or pictures directly from your web server. You can then display the result in the client browser, sent it by mail or insert it into PDFs. pChart provide object oriented coding syntax and is fully in line with the new web standards allowing you to enhance your web2.0 applications. 
+This library must use 5.6 or less.
+
+* Create Histogram 
+```bat
+"C:\xampp\php\php.exe" "create.histograms.php" "training.logos"
+```
+
 
 ### Histogram of Logos
 ![Brisbane Collision Center](https://github.com/deltastateonline/ml-php/blob/master/training.logos/folder.histogram/brisbane.collision.center.png)
