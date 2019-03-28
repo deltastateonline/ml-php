@@ -3,6 +3,7 @@ require_once("vendor/autoload.php");
 
 use Phpml\Classification\SVC;
 use Phpml\SupportVectorMachine\Kernel;
+use Phpml\Preprocessing\Normalizer;
 
 $currentDir =  getcwd(); // where am i , test, validate or test
 $features_folder = $currentDir.DIRECTORY_SEPARATOR."features".DIRECTORY_SEPARATOR;
@@ -10,7 +11,7 @@ $prediction_model_folder = $currentDir.DIRECTORY_SEPARATOR."predictions.model".D
 
 try {
     
-    $logo_dataset = new Phpml\Dataset\CsvDataset($features_folder."logo.csv",34, true);  // load logo features
+    $logo_dataset = new Phpml\Dataset\CsvDataset($features_folder."logos.csv",34, true);  // load logo features
     $photos_dataset = new Phpml\Dataset\CsvDataset($features_folder."photos.csv",34, true); //// load photos features
     
     $tmp_logo_samples =  $logo_dataset->getSamples(); // samples from col 1 to col 33
@@ -18,7 +19,8 @@ try {
 	
 	$tmp_photos_samples =  $photos_dataset->getSamples();// samples from col 1 to col 33
     $tmp_photos_labels =  $photos_dataset->getTargets(); // label is at col 34
-	echo "\n";
+	echo "Start Processing \n";
+	
 	for($j = 0 ; $j < 20 ; $j++){
 	
 		$samples = array_merge($tmp_logo_samples,$tmp_photos_samples ); // merge logo and photos samples
@@ -36,8 +38,17 @@ try {
 		list($training_samples, $training_samples_files) = removeFilenames($training_samples); // remove the filename from the dataset   
 		list($test_sample, $test_samples_files) = removeFilenames($test_sample); // remove the file name from the dataset
 		
+		
+		$normalizer = new Normalizer(Normalizer::NORM_L1);
+		$normalizer->transform($training_samples);
+		
+		$normalizer1 = new Normalizer(Normalizer::NORM_L1);
+		$normalizer1->transform($test_sample);
+		
+		
 		//$classifier = new Phpml\Classification\SVC(Kernel::LINEAR, $cost = 1000);	
-		$classifier = new SVC(Kernel::RBF, $cost = 1000, $degree = 3, $gamma = 6);
+		//$classifier = new SVC(Kernel::RBF, $cost = 1000, $degree = 3, $gamma = 6);
+		$classifier = new SVC(Kernel::LINEAR, $cost = 1000);
 		$classifier->train($training_samples, $training_labels);  	
 		
 		$predictedLabels  = array();

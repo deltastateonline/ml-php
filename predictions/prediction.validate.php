@@ -3,10 +3,14 @@ require_once("vendor/autoload.php");
 use Phpml\ModelManager;
 use Phpml\Classification\SVC;
 use Phpml\SupportVectorMachine\Kernel;
+use Phpml\Preprocessing\Normalizer;
 
 
 if(count($argv) > 1 ){
 	$inputFile = $argv[1];	
+	
+	if(!empty($argv[2]))	
+		$modelToUse = $argv[2];	
 }else{
 	$inputFile = "validate.csv";
 }
@@ -27,7 +31,13 @@ try {
     
     list($validate_samples, $validate_files) = removeFilenames($validate_samples); 
     
-	$filepath = $prediction_model_folder."nmodel_0.9821.data";
+	
+	$normalizer = new Normalizer(Normalizer::NORM_L1);
+	$normalizer->transform($validate_samples);
+		
+		
+    
+	$filepath = $prediction_model_folder.$modelToUse; //"nmodel_0.9821.data";
 	
     $modelManager = new ModelManager();
 
